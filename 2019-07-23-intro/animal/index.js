@@ -5,6 +5,12 @@ class Animal {
 
     vegetarian;
 
+    constructor(species, numberOfLegs, vegetarian){
+        this.species = species;
+        this.numberOfLegs = numberOfLegs;
+        this.vegetarian = vegetarian;
+    }
+
     canFly();
 
     canRun();
