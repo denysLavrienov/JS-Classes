@@ -1,9 +1,9 @@
-import {Animal} from "../animal";
+import {Animal} from "../";
 
 /**
- * Stands for abstract bird.
+ * Describes an animal belonging to the species Dog.
  */
-export class Bird extends Animal {
+export class Dog extends Animal {
     /**
      * Gets a description of the animal as parameters.
      * @param {string} species - species of animal.
@@ -16,31 +16,31 @@ export class Bird extends Animal {
 
     /**
      *
-     * @returns {boolean} can bird fly?
+     * @returns {boolean} can dog fly?
      */
     canFly() {
+        return false;
+    }
+
+    /**
+     *
+     * @returns {boolean} can dog run?
+     */
+    canRun() {
         return true;
     }
 
     /**
      *
-     * @returns {boolean} can bird run?
-     */
-    canRun() {
-        return false;
-    }
-
-    /**
-     *
-     * @returns {boolean} can bird run?
+     * @returns {boolean} can dog swim?
      */
     canSwim() {
-        return false;
+        return true;
     }
 
     /**
      *
-     * @returns {boolean} can bird run?
+     * @returns {boolean} can dog eat another animal?
      */
     eats(Animal) {
         return !this.vegetarian;

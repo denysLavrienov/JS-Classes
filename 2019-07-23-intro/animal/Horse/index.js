@@ -1,9 +1,9 @@
-import {Animal} from "../animal";
+import {Animal} from "../";
 
 /**
- * Describes an animal belonging to the species Elephant.
+ * Describes an animal belonging to the species Horse.
  */
-export class Elephant extends Animal {
+export class Horse extends Animal {
     /**
      * Gets a description of the animal as parameters.
      * @param {string} species - species of animal.
@@ -16,7 +16,7 @@ export class Elephant extends Animal {
 
     /**
      *
-     * @returns {boolean} can elephant fly?
+     * @returns {boolean} can horse fly?
      */
     canFly() {
         return false;
@@ -24,7 +24,7 @@ export class Elephant extends Animal {
 
     /**
      *
-     * @returns {boolean} can elephant run?
+     * @returns {boolean} can horse run?
      */
     canRun() {
         return true;
@@ -32,7 +32,7 @@ export class Elephant extends Animal {
 
     /**
      *
-     * @returns {boolean} can elephant swim?
+     * @returns {boolean} can horse swim?
      */
     canSwim() {
         return false;
@@ -40,10 +40,10 @@ export class Elephant extends Animal {
 
     /**
      *
-     * @returns {boolean} can elephant eat another animal?
+     * @returns {boolean} can horse eat another animal?
      */
     eats(Animal) {
-        return this.vegetarian;
+        return !this.vegetarian;
     }
 
 }

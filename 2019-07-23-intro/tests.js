@@ -1,14 +1,14 @@
-import {Dog} from "./Dog";
-import {Eagle} from "./Eagle";
-import {Elephant} from "./Elephant";
-import {Cat} from "./Cat";
-import {Horse} from "./Horse";
-import {Human} from "./Human";
-import {Lion} from "./Lion";
-import {Parrot} from "./Parrot";
-import {Pig} from "./Pig";
-import {Tiger} from "./Tiger";
-import {Salmon} from "./Salmon";
+import {Dog} from "./animal/Dog";
+import {Eagle} from "./animal/Bird/Eagle";
+import {Elephant} from "./animal/Elephant";
+import {Cat} from "./animal/Cat";
+import {Horse} from "./animal/Horse";
+import {Human} from "./animal/Human";
+import {Lion} from "./animal/Lion";
+import {Parrot} from "./animal/Parrot";
+import {Pig} from "./animal/Pig";
+import {Tiger} from "./animal/Tiger";
+import {Salmon} from "./animal/Salmon";
 
 const dog = new Dog("Shepherd", 4, false);
 const cat = new Cat("British", 4, false);
