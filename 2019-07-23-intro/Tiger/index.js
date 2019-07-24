@@ -1,4 +1,6 @@
-class Tiger extends Animal{
+import {Animal} from "../animal";
+
+export class Tiger extends Animal{
     constructor(species, numberOfLegs, vegetarian){
         super(species, numberOfLegs, vegetarian);
     }
@@ -16,7 +18,7 @@ class Tiger extends Animal{
     }
 
     eats(Animal){
-        return true;
+        return !this.vegetarian;
     }
 
 }

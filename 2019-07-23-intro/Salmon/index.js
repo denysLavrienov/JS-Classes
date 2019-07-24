@@ -1,4 +1,6 @@
-class Salmon extends Animal{
+import {Animal} from "../animal";
+
+export class Salmon extends Animal{
     constructor(species, numberOfLegs, vegetarian){
         super(species, numberOfLegs, vegetarian);
     }
@@ -16,7 +18,7 @@ class Salmon extends Animal{
     }
 
     eats(Animal){
-        return true;
+        return this.vegetarian;
     }
 
 }

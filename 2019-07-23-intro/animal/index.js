@@ -1,4 +1,4 @@
-class Animal {
+export class Animal {
     species;
 
     numberOfLegs;
@@ -11,12 +11,20 @@ class Animal {
         this.vegetarian = vegetarian;
     }
 
-    canFly();
+    canFly(){
+        return false;
+    }
 
-    canRun();
+    canRun(){
+        return false;
+    }
 
-    canSwim();
+    canSwim(){
+        return false;
+    }
 
-    eats(Animal);
+    eats(Animal){
+        return this.vegetarian;
+    }
 
 }
