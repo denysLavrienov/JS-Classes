@@ -1,23 +1,48 @@
 import {Bird} from "../Bird";
 
-export class Eagle extends Bird{
-    constructor(species, numberOfLegs, vegetarian){
+/**
+ * Describes an animal belonging to the species Eagle.
+ */
+export class Eagle extends Bird {
+    /**
+     * Gets a description of the animal as parameters.
+     * @param {string} species - species of animal.
+     * @param {Number} numberOfLegs - the number of paws of the animal.
+     * @param {boolean} vegetarian - animal s vegetarian or not.
+     */
+    constructor(species, numberOfLegs, vegetarian) {
         super(species, numberOfLegs, vegetarian);
     }
 
-    canFly(){
+    /**
+     *
+     * @returns {boolean} can eagle fly?
+     */
+    canFly() {
         return true;
     }
 
-    canRun(){
+    /**
+     *
+     * @returns {boolean} can eagle run?
+     */
+    canRun() {
         return false;
     }
 
-    canSwim(){
+    /**
+     *
+     * @returns {boolean} can eagle swim?
+     */
+    canSwim() {
         return false;
     }
 
-    eats(Animal){
+    /**
+     *
+     * @returns {boolean} can eagle eat another animal?
+     */
+    eats(Animal) {
         return !this.vegetarian;
     }
 

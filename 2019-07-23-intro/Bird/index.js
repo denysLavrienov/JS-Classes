@@ -1,23 +1,48 @@
 import {Animal} from "../animal";
 
-export class Bird extends Animal{
-
-    constructor(species, numberOfLegs, vegetarian){
+/**
+ * Stands for abstract bird.
+ */
+export class Bird extends Animal {
+    /**
+     * Gets a description of the animal as parameters.
+     * @param {string} species - species of animal.
+     * @param {Number} numberOfLegs - the number of paws of the animal.
+     * @param {boolean} vegetarian - animal s vegetarian or not.
+     */
+    constructor(species, numberOfLegs, vegetarian) {
         super(species, numberOfLegs, vegetarian);
     }
-    canFly(){
+
+    /**
+     *
+     * @returns {boolean} can bird fly?
+     */
+    canFly() {
         return true;
     }
 
-    canRun(){
+    /**
+     *
+     * @returns {boolean} can bird run?
+     */
+    canRun() {
         return false;
     }
 
-    canSwim(){
+    /**
+     *
+     * @returns {boolean} can bird run?
+     */
+    canSwim() {
         return false;
     }
 
-    eats(Animal){
+    /**
+     *
+     * @returns {boolean} can bird run?
+     */
+    eats(Animal) {
         return !this.vegetarian;
     }
 

@@ -1,23 +1,48 @@
 import {Animal} from "../animal";
 
-export class Horse extends Animal{
-    constructor(species, numberOfLegs, vegetarian){
+/**
+ * Describes an animal belonging to the species Horse.
+ */
+export class Horse extends Animal {
+    /**
+     * Gets a description of the animal as parameters.
+     * @param {string} species - species of animal.
+     * @param {Number} numberOfLegs - the number of paws of the animal.
+     * @param {boolean} vegetarian - animal s vegetarian or not.
+     */
+    constructor(species, numberOfLegs, vegetarian) {
         super(species, numberOfLegs, vegetarian);
     }
 
-    canFly(){
+    /**
+     *
+     * @returns {boolean} can horse fly?
+     */
+    canFly() {
         return false;
     }
 
-    canRun(){
+    /**
+     *
+     * @returns {boolean} can horse run?
+     */
+    canRun() {
         return true;
     }
 
-    canSwim(){
-        return true;
+    /**
+     *
+     * @returns {boolean} can horse swim?
+     */
+    canSwim() {
+        return false;
     }
 
-    eats(Animal){
+    /**
+     *
+     * @returns {boolean} can horse eat another animal?
+     */
+    eats(Animal) {
         return !this.vegetarian;
     }
 
