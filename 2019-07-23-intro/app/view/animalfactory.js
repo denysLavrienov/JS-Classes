@@ -28,10 +28,7 @@ export class AnimalFactory{
     }
 
     getAnimal(name){
-        this.map.get(name);
-    }
-    getKeys(){
-        return this.map.keys();
+        return this.map.get(name);
     }
 
 }
