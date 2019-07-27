@@ -1,3 +1,4 @@
+import {AnimalFactory} from "./animalfactory.js";
 
 const root = document.getElementById("root");
 let input = document.createElement("input");
@@ -43,6 +44,7 @@ let optionTiger = document.createElement("option");
 optionTiger.textContent = "Tiger";
 
 
+let animalFactory = new AnimalFactory();
 
 select.appendChild(optionCat);
 select.appendChild(optionDog);
