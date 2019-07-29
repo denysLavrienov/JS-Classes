@@ -38,7 +38,6 @@ export class SelectFieldCreator {
         let optionTiger = document.createElement("option");
         optionTiger.textContent = "Tiger";
 
-
         select.appendChild(optionCat);
         select.appendChild(optionDog);
         select.appendChild(optionEagle);
@@ -51,7 +50,6 @@ export class SelectFieldCreator {
         select.appendChild(optionSalmon);
         select.appendChild(optionTiger);
         select.selected = optionCat;
-        // return select;
 
     }
 }
