@@ -1,6 +1,6 @@
 import {AnimalFactory} from "./animalfactory.js";
 import {SelectFieldCreator} from "./selectFieldCreator.js";
-import {TableCreator} from "./tableCreator.js";
+import {EatabilityListCreator} from "./eatabilityListCreator.js";
 
 const root = document.getElementById("root");
 let input = document.createElement("input");
@@ -43,8 +43,7 @@ addButton.addEventListener("click", () => {
     let animal = animalFactory.getAnimal(selectedAnimal);
 
     let listElement = document.createElement("li");
-
-    list.appendChild(listElement);
+    listElement.class = selectedAnimal;
 
     listElement.innerHTML = `Animal class: ${selectedAnimal}
                             <p>Animal name: ${input.value}
@@ -53,10 +52,11 @@ addButton.addEventListener("click", () => {
                             <p>Animal can fly? ${animal.canFly()}`;
 
     list.appendChild(listElement);
+    input.value = "";
 });
 
 displayButton.addEventListener("click", () => {
 
-        new TableCreator(select, animalFactory, root).createTable();
+        new EatabilityListCreator(list, animalFactory, root).createTable();
     }
 );

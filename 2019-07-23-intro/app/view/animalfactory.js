@@ -27,8 +27,8 @@ export class AnimalFactory{
         this.map.set("Tiger", new Tiger("Amur tiger", 4, false));
     }
 
-    getAnimal(name){
-        return this.map.get(name);
+    getAnimal(animal){
+        return this.map.get(animal);
     }
 
 }
