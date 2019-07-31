@@ -1,0 +1,23 @@
+import catTest from "./cattest";
+import dogTest from "./dogtest";
+import tigerTest from "./tigertest";
+import salmonTest from "./salmontest";
+import eagleTest from "./eagletest";
+import elephantTest from "./elephanttest";
+import horseTest from "./horsetest";
+import humanTest from "./humantest";
+import lionTest from "./liontest";
+import parrotTest from "./parrottest";
+import pigTest from "./pigtest";
+
+catTest();
+dogTest();
+tigerTest();
+salmonTest();
+eagleTest();
+elephantTest();
+horseTest();
+humanTest();
+lionTest();
+parrotTest();
+pigTest();
