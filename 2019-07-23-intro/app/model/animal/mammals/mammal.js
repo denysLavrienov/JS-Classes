@@ -7,11 +7,11 @@ export class Mammal extends Animal {
     /**
      * Gets a description of the animal as parameters.
      * @param {string} species - species of animal.
-     * @param {Number} numberOfLegs - the number of paws of the animal.
      * @param {boolean} vegetarian - animal is vegetarian or not.
      */
-    constructor(species, numberOfLegs, vegetarian) {
-        super(species, numberOfLegs, vegetarian);
+    constructor(species, vegetarian) {
+
+        super(species, 4, vegetarian);
     }
 
     /**

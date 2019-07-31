@@ -16,7 +16,7 @@ export default function () {
         assert.ok(eagle.canRun() === false, "Should return false eagle cat run test.");
     });
     QUnit.test("Eagle eat pig test.", function (assert) {
-        assert.ok(eagle.eats(new Pig("Boar", 4, false)) === true, "Should return true for eagle eat pig test.");
+        assert.ok(eagle.eats(new Pig("Boar",  false)) === true, "Should return true for eagle eat pig test.");
     });
     QUnit.test("Eagle habitat test.", function (assert) {
         assert.ok(eagle.habitat() === "Air", "Should return Air for eagle habitat test.");

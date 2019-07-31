@@ -7,15 +7,14 @@ export class Elephant extends Mammal {
     /**
      * Gets a description of the animal as parameters.
      * @param {string} species - species of animal.
-     * @param {Number} numberOfLegs - the number of paws of the animal.
      * @param {boolean} vegetarian - animal is vegetarian or not.
      */
-    constructor(species, numberOfLegs, vegetarian) {
+    constructor(species, vegetarian) {
         if (vegetarian === false) {
             throw new Error("Wrong kind of heterotrophy for elephant.");
         }
-        super(species, numberOfLegs, vegetarian);
-    }
+        super(species, vegetarian);
+}
 
     /**
      *

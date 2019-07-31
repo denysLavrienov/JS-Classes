@@ -1,7 +1,7 @@
 import {Elephant} from "../../app/model/animal/mammals/elephant.js";
 import {Pig} from "../../app/model/animal/mammals/pig.js";
 
-const elephant = new Elephant("African", 4, true);
+const elephant = new Elephant("African",  true);
 
 export default function () {
     QUnit.module("Elephant tests.");
@@ -16,7 +16,7 @@ export default function () {
         assert.ok(elephant.canRun() === true, "Passed");
     });
     QUnit.test("Elephant eat pig test.", function (assert) {
-        assert.ok(elephant.eats(new Pig("Boar", 4, false)) === false, "Passed");
+        assert.ok(elephant.eats(new Pig("Boar",  false)) === false, "Passed");
     });
     QUnit.test("Elephant habitat test.", function (assert) {
         assert.ok(elephant.habitat() === "Ground", "Passed");

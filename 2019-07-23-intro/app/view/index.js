@@ -1,6 +1,6 @@
 import {AnimalFactory} from "./animalfactory.js";
 import {SelectFieldCreator} from "./selectFieldCreator.js";
-import {TableCreator} from "./tableCreator.js";
+import {EatabilityListCreator} from "./eatabilityListCreator.js";
 
 const root = document.getElementById("root");
 let input = document.createElement("input");
@@ -43,8 +43,7 @@ addButton.addEventListener("click", () => {
     let animal = animalFactory.getAnimal(selectedAnimal);
 
     let listElement = document.createElement("li");
-
-    list.appendChild(listElement);
+    listElement.class = selectedAnimal;
 
     listElement.innerHTML = `Animal class: ${selectedAnimal}
                             <p>Animal name: ${input.value}
@@ -53,10 +52,53 @@ addButton.addEventListener("click", () => {
                             <p>Animal can fly? ${animal.canFly()}`;
 
     list.appendChild(listElement);
+    input.value = "";
 });
+
+function * generator(){
+    for (let i = 0; i < list.childNodes.length; i++) {
+        yield list.childNodes[i];
+    }
+}
+
+let listGenerator = generator();
+
+let eatabilityList = document.createElement("ul");
+root.appendChild(eatabilityList);
 
 displayButton.addEventListener("click", () => {
 
-        new TableCreator(select, animalFactory, root).createTable();
+    let animal = listGenerator.next().value;
+
+    console.log(animal.class);
+
+    let item = document.createElement("li");
+
+    let eatability = "";
+
+    let childNodes = [].slice.call(list.childNodes);
+    for (let j = 0; j < childNodes.length; j++) {
+
+        let eatabilityResult = animalFactory.getAnimal(animal.class)
+            .eats(animalFactory.getAnimal(childNodes[j].class));
+
+        if (eatabilityResult) {
+
+            if (j < (childNodes.length - 1)) {
+                eatability += childNodes[j].class + ", ";
+            } else {
+                eatability += childNodes[j].class;
+            }
+
+
+            childNodes.splice(j, 1);
+            j--;
+            console.log(childNodes.length);
+        }
     }
-);
+
+    item.innerHTML = animal.class + " can eat: " + eatability;
+
+    eatabilityList.appendChild(item);
+
+});

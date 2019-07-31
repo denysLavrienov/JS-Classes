@@ -16,7 +16,7 @@ export default function () {
         assert.ok(salmon.canRun() === false, "Passed");
     });
     QUnit.test("Salmon eat pig test.", function (assert) {
-        assert.ok(salmon.eats(new Pig("Boar", 4, false)) === false, "Passed");
+        assert.ok(salmon.eats(new Pig("Boar",  false)) === false, "Passed");
     });
     QUnit.test("Salmon habitat test.", function (assert) {
         assert.ok(salmon.habitat() === "Water", "Passed");

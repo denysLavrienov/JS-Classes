@@ -16,7 +16,7 @@ export default function () {
         assert.ok(parrot.canRun() === false, "Passed");
     });
     QUnit.test("Parrot eat pig test.", function (assert) {
-        assert.ok(parrot.eats(new Pig("Boar", 4, false)) === false, "Passed");
+        assert.ok(parrot.eats(new Pig("Boar",  false)) === false, "Passed");
     });
     QUnit.test("Parrot habitat test.", function (assert) {
         assert.ok(parrot.habitat() === "Air", "Passed");

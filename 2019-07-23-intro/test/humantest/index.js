@@ -16,7 +16,7 @@ export default function () {
         assert.ok(human.canRun() === true, "Passed");
     });
     QUnit.test("Human eat pig test.", function (assert) {
-        assert.ok(human.eats(new Pig("Boar", 4, false)) === true, "Passed");
+        assert.ok(human.eats(new Pig("Boar",  false)) === true, "Passed");
     });
     QUnit.test("Human habitat test.", function (assert) {
         assert.ok(human.habitat() === "Ground", "Passed");

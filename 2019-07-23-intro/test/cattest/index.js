@@ -4,7 +4,7 @@ import {Pig} from "../../app/model/animal/mammals/pig.js";
 export default function () {
 
 
-    const cat = new Cat("British", 4, false);
+    const cat = new Cat("British",  false);
 
     QUnit.module("Cat tests.");
 
@@ -18,7 +18,7 @@ export default function () {
         assert.ok(cat.canRun() === true, "Should return true for cat run test.");
     });
     QUnit.test("Cat eat pig test.", function (assert) {
-        assert.ok(cat.eats(new Pig("Boar", 4, false)) === true,
+        assert.ok(cat.eats(new Pig("Boar", false)) === true,
             "Should return true for cat eat pig test.");
     });
     QUnit.test("Cat habitat test.", function (assert) {
