@@ -1,6 +1,5 @@
 import {Form} from "./form.js";
 
-
 export class Application{
     constructor(root) {
         this.root = root;

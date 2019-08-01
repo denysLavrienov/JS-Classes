@@ -20,15 +20,16 @@ export class Form {
         const select = new SelectFieldCreator().createSelect();
         this.root.appendChild(select);
 
-        let childNodes = [];
+        let animals = [];
 
-        new Button("Add animal", this.root).render(() => {
+        let addButton = new Button("Add animal").createButton();
+        addButton.addEventListener("click", () => {
 
             let selectedAnimal = select.options[select.selectedIndex].textContent;
             let animal = new AnimalFactory().getAnimal(selectedAnimal);
 
             let listElement = document.createElement("li");
-            listElement.class = selectedAnimal;
+            listElement.id = selectedAnimal;
 
             listElement.innerHTML = `Animal class: ${selectedAnimal}
                             <p>Animal name: ${input.value}
@@ -37,23 +38,24 @@ export class Form {
                             <p>Animal can fly? ${animal.canFly()}`;
 
             this.animalList.appendChild(listElement);
-            childNodes.push(listElement);
+            animals.push(listElement);
             input.value = "";
         });
 
-        new Button("Display eatability table", this.root).render(() => {
+        let displayButton = new Button("Display eatability list").createButton();
+        displayButton.addEventListener("click", () => {
 
-            const animal = childNodes[0];
+            const animal = this.animalList.childNodes[0];
             const item = document.createElement("li");
             let eatability = "";
             let sign = false;
             const animalFactory = new AnimalFactory();
-            const promise = new Promise((resolve, reject) => {
 
+            const promise = new Promise((resolve, reject) => {
                 item.innerHTML = "Loading...";
 
                 setTimeout(() => {
-                    if(childNodes.length>0) {
+                    if(this.animalList.childNodes.length>0) {
                         resolve();
                     } else {
                         reject();
@@ -63,40 +65,37 @@ export class Form {
             });
 
             promise.then(() => {
+                let j = 0;
+                for (; j < animals.length; j++) {
 
-                for (let j = 0; j < childNodes.length; j++) {
-
-                    let eatabilityResult = animalFactory.getAnimal(animal.class)
-                        .eats(animalFactory.getAnimal(childNodes[j].class));
+                    let eatabilityResult = animalFactory.getAnimal(animal.id)
+                        .eats(animalFactory.getAnimal(animals[j].id));
 
                     if (eatabilityResult) {
-
-                        if (j < (childNodes.length - 1)) {
-
-                            eatability += childNodes[j].class + ", ";
+                        if (j < (animals.length - 1)) {
+                            eatability += animals[j].id + ", ";
                         } else {
-                            eatability += childNodes[j].class;
+                            eatability += animals[j].id;
                         }
-                        childNodes.splice(j--, 1);
-
+                        animals.splice(j--, 1);
                         sign = true;
                     }
                 }
                 if (!sign) {
-                    childNodes.splice(0, 1);
+                    animals.splice(j--, 1);
                 }
-                item.innerHTML = animal.class + " can eat: " + eatability;
+                item.innerHTML = animal.id + " can eat: " + eatability;
             });
 
             promise.catch(()=>{
                 item.innerHTML = "No animals left";
             });
 
-
             this.eatabilityList.appendChild(item);
 
         });
 
+        this.root.appendChild(addButton);
+        this.root.appendChild(displayButton);
     }
-
 }
