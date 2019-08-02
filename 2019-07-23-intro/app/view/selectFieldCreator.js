@@ -5,6 +5,7 @@ export class SelectFieldCreator {
         option.textContent = optionText;
         select.appendChild(option);
     }
+
     createSelect() {
 
         let select = document.createElement("select");

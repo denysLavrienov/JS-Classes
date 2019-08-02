@@ -1,28 +1,27 @@
 import {SelectFieldCreator} from "./selectFieldCreator.js";
 import {AnimalFactory} from "./animalfactory.js";
 import {Button} from "./button.js";
+import {Input} from "./input.js";
 
 export class Form {
-    constructor(root, animalList, eatabilityList) {
+    constructor(root) {
         this.root = root;
-        this.animalList = animalList;
-        this.eatabilityList = eatabilityList;
         this.render();
     }
 
     render() {
 
-        let input = document.createElement("input");
-        input.placeholder = "Name";
-        input.style.marginRight = "50px";
+        const input = new Input().createInput();
         this.root.appendChild(input);
 
         const select = new SelectFieldCreator().createSelect();
         this.root.appendChild(select);
 
-        let animals = [];
+        const animals = [];
+        const animalList = document.getElementById("AnimalList");
+        const eatabilityList = document.getElementById("EatabilityList");
 
-        let addButton = new Button("Add animal").createButton();
+        const addButton = new Button("Add animal").createButton();
         addButton.addEventListener("click", () => {
 
             let selectedAnimal = select.options[select.selectedIndex].textContent;
@@ -31,21 +30,22 @@ export class Form {
             let listElement = document.createElement("li");
             listElement.id = selectedAnimal;
 
-            listElement.innerHTML = `Animal class: ${selectedAnimal}
-                            <p>Animal name: ${input.value}
-                            <p>Animal can run? ${animal.canRun()}
-                            <p>Animal can swim? ${animal.canSwim()}
-                            <p>Animal can fly? ${animal.canFly()}`;
+            listElement.innerHTML = `Animal's class: ${selectedAnimal}
+                                    <br/>Animal's name: ${input.value}
+                                    <br/>Animal can run? ${animal.canRun()}
+                                    <br/>Animal can swim? ${animal.canSwim()}
+                                    <br/>Animal can fly? ${animal.canFly()}`;
+            listElement.style.marginTop = "10px";
 
-            this.animalList.appendChild(listElement);
+            animalList.appendChild(listElement);
             animals.push(listElement);
             input.value = "";
         });
 
-        let displayButton = new Button("Display eatability list").createButton();
+        const displayButton = new Button("Display eatability list").createButton();
         displayButton.addEventListener("click", () => {
 
-            const animal = this.animalList.childNodes[0];
+            const animal = animals[0];
             const item = document.createElement("li");
             let eatability = "";
             let sign = false;
@@ -55,18 +55,16 @@ export class Form {
                 item.innerHTML = "Loading...";
 
                 setTimeout(() => {
-                    if(this.animalList.childNodes.length>0) {
+                    if (animals.length > 0) {
                         resolve();
                     } else {
-                        reject();
+                        reject(new Error("No animals left"));
                     }
-
                 }, 2000);
             });
 
             promise.then(() => {
-                let j = 0;
-                for (; j < animals.length; j++) {
+                for (let j = 0; j < animals.length; j++) {
 
                     let eatabilityResult = animalFactory.getAnimal(animal.id)
                         .eats(animalFactory.getAnimal(animals[j].id));
@@ -82,17 +80,15 @@ export class Form {
                     }
                 }
                 if (!sign) {
-                    animals.splice(j--, 1);
+                    animals.splice(0, 1);
                 }
                 item.innerHTML = animal.id + " can eat: " + eatability;
+            }, error => {
+                item.innerHTML = error.message;
+                item.style.listStyle = "none";
             });
 
-            promise.catch(()=>{
-                item.innerHTML = "No animals left";
-            });
-
-            this.eatabilityList.appendChild(item);
-
+            eatabilityList.appendChild(item);
         });
 
         this.root.appendChild(addButton);

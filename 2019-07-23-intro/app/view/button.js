@@ -1,11 +1,10 @@
-export class Button{
-    constructor(name){
+export class Button {
+    constructor(name) {
         this.name = name;
     }
 
 
-
-    createButton(){
+    createButton() {
         let button = document.createElement("button");
 
         button.textContent = this.name;

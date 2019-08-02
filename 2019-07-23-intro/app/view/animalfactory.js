@@ -10,7 +10,7 @@ import {Salmon} from "../model/animal/fishes/salmon.js";
 import {Tiger} from "../model/animal/mammals/tiger.js";
 import {Lion} from "../model/animal/mammals/lion.js";
 
-export class AnimalFactory{
+export class AnimalFactory {
 
     constructor() {
         this.map = new Map();
@@ -27,7 +27,7 @@ export class AnimalFactory{
         this.map.set("Tiger", new Tiger("Amur tiger", 4, false));
     }
 
-    getAnimal(animal){
+    getAnimal(animal) {
         return this.map.get(animal);
     }
 

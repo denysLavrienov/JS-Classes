@@ -1,21 +1,23 @@
 import {Form} from "./form.js";
+import {List} from "./list.js";
 
-export class Application{
+export class Application {
     constructor(root) {
         this.root = root;
         this.render(root);
     }
 
-    render(){
-        let list = document.createElement("ol");
-        let eatabilityList = document.createElement("ul");
+    render() {
 
-        new Form(this.root, list, eatabilityList);
+        let form = document.createElement("div");
+        this.root.appendChild(form);
 
-        this.root.appendChild(list);
+        let animalList = new List("AnimalList").createList();
+        let eatabilityList = new List("EatabilityList").createList();
+        this.root.appendChild(animalList);
         this.root.appendChild(eatabilityList);
 
+        new Form(form);
     }
-
 }
 
