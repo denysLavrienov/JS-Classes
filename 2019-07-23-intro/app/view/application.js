@@ -9,11 +9,12 @@ export class Application {
 
     render() {
 
-        let form = document.createElement("div");
+        const form = document.createElement("div");
+        form.id = "form";
         this.root.appendChild(form);
 
-        let animalList = new List("AnimalList").createList();
-        let eatabilityList = new List("EatabilityList").createList();
+        const animalList = new List("AnimalList").createList();
+        const eatabilityList = new List("EatabilityList").createList();
         this.root.appendChild(animalList);
         this.root.appendChild(eatabilityList);
 

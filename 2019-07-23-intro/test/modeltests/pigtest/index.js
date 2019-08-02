@@ -1,4 +1,4 @@
-import {Pig} from "../../app/model/animal/mammals/pig.js";
+import {Pig} from "../../../app/model/animal/mammals/pig.js";
 
 const pig = new Pig("Boar", 4, false);
 

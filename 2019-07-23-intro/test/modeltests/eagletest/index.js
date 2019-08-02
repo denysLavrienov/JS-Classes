@@ -1,5 +1,5 @@
-import {Eagle} from "../../app/model/animal/birds/eagle.js";
-import {Pig} from "../../app/model/animal/mammals/pig.js";
+import {Eagle} from "../../../app/model/animal/birds/eagle.js";
+import {Pig} from "../../../app/model/animal/mammals/pig.js";
 
 const eagle = new Eagle(false);
 

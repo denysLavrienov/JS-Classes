@@ -1,5 +1,5 @@
-import {Tiger} from "../../app/model/animal/mammals/tiger.js";
-import {Pig} from "../../app/model/animal/mammals/pig.js";
+import {Tiger} from "../../../app/model/animal/mammals/tiger.js";
+import {Pig} from "../../../app/model/animal/mammals/pig.js";
 
 export default function () {
     const tiger = new Tiger("Amur tiger", 4, false);

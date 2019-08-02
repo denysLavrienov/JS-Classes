@@ -5,10 +5,11 @@ export class Button {
 
 
     createButton() {
-        let button = document.createElement("button");
+        const button = document.createElement("button");
 
         button.textContent = this.name;
         button.style.marginLeft = "50px";
+        button.id = this.name;
 
         return button;
 

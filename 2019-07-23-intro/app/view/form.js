@@ -11,7 +11,7 @@ export class Form {
 
     render() {
 
-        const input = new Input().createInput();
+        const input = Input.createInput();
         this.root.appendChild(input);
 
         const select = new SelectFieldCreator().createSelect();
@@ -22,12 +22,13 @@ export class Form {
         const eatabilityList = document.getElementById("EatabilityList");
 
         const addButton = new Button("Add animal").createButton();
+
         addButton.addEventListener("click", () => {
 
-            let selectedAnimal = select.options[select.selectedIndex].textContent;
-            let animal = new AnimalFactory().getAnimal(selectedAnimal);
+            const selectedAnimal = select.options[select.selectedIndex].textContent;
+            const animal = new AnimalFactory().getAnimal(selectedAnimal);
 
-            let listElement = document.createElement("li");
+            const listElement = document.createElement("li");
             listElement.id = selectedAnimal;
 
             listElement.innerHTML = `Animal's class: ${selectedAnimal}

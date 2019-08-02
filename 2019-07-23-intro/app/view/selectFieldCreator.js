@@ -1,14 +1,14 @@
 export class SelectFieldCreator {
 
     addOption(optionText, select) {
-        let option = document.createElement("option");
+        const option = document.createElement("option");
         option.textContent = optionText;
         select.appendChild(option);
     }
 
     createSelect() {
 
-        let select = document.createElement("select");
+        const select = document.createElement("select");
         this.addOption("Cat", select);
         this.addOption("Dog", select);
         this.addOption("Eagle", select);
