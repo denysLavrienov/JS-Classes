@@ -1,5 +1,5 @@
-import {Dog} from "../../app/model/animal/mammals/dog.js";
-import {Cat} from "../../app/model/animal/mammals/cat.js";
+import {Dog} from "../../../app/model/animal/mammals/dog.js";
+import {Cat} from "../../../app/model/animal/mammals/cat.js";
 
 export default function () {
     const dog = new Dog("Shepherd", 4, false);

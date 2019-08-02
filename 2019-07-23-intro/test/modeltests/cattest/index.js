@@ -1,5 +1,5 @@
-import {Cat} from "../../app/model/animal/mammals/cat.js";
-import {Pig} from "../../app/model/animal/mammals/pig.js";
+import {Cat} from "../../../app/model/animal/mammals/cat.js";
+import {Pig} from "../../../app/model/animal/mammals/pig.js";
 
 export default function () {
 

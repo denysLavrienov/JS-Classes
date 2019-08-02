@@ -1,5 +1,5 @@
-import {Human} from "../../app/model/animal/human/human.js";
-import {Pig} from "../../app/model/animal/mammals/pig.js";
+import {Human} from "../../../app/model/animal/human/human.js";
+import {Pig} from "../../../app/model/animal/mammals/pig.js";
 
 const human = new Human("Negroid", 2, false);
 
